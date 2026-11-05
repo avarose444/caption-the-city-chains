@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* All colors are tokens, so dark mode is just a different set of values.
+   System default uses the media query; a saved choice sets data-theme on <html>. */
+:root {
+  color-scheme: light;
+  --background: #f3eee4;
+  --ink: #111111;
+  --card: #fbf8f2;
+  --field: #ffffff;
+  --muted: #5c574f;
+  --rule: #d9d1c2;
+  --rouge: #c8201a;
+  --bleu: #1d3fbb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #121110;
+    --ink: #f3eee4;
+    --card: #1c1a18;
+    --field: #262320;
+    --muted: #a8a196;
+    --rule: #3a3631;
+    --rouge: #f0675f;
+    --bleu: #9db1ff;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #121110;
+  --ink: #f3eee4;
+  --card: #1c1a18;
+  --field: #262320;
+  --muted: #a8a196;
+  --rule: #3a3631;
+  --rouge: #f0675f;
+  --bleu: #9db1ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-ink: var(--ink);
+  --color-card: var(--card);
+  --color-field: var(--field);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rouge: var(--rouge);
+  --color-bleu: var(--bleu);
+  --font-display: var(--font-anton);
+  --font-mono: var(--font-courier-prime);
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--font-courier-prime), "Courier New", monospace;
+}
